@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title></title>
+	<!-- Plug-In Begin-->
+	<!-- 弹窗-->
+	<link rel="stylesheet" href="Plug-In/Popup/popup.css">
+	<script src="Plug-In/Popup/popup.js"></script>
+	<!-- Plug-In End  -->
+</head>
+<body>
+	<div class="btn-continer">
+		<ol>
+			<li><a href="javascript:pop('msg_content');">内容弹窗</a></li>
+			<li><a href="javascript:pop('img_content');">图片弹窗</a></li>
+			<li><a href="javascript:pop('tb_content');">表格弹窗</a></li>
+			<li><a href="javascript:pop('layer_content');">多层弹窗</a></li>
+		</ol>
+		<!-- <input type="text" id="txt" style="width:300px;">
+		<input type="button" value='弹窗' onclick="msg();"> -->
+	</div>
+	<div class="cont-continer">
+		<div class="cont msg_content">
+			<span onclick="pop('img_content');" class="span-btn">老板！再来个！</span>
+			<span>Are you anxious and have splitting headaches as well?</span>
+			<br>
+			<br>
+			<span>
+			Anxiety and headaches are a very common problem nowadays. They are “complementary” in many ways. Anxiety comes in many forms—panic attacks, phobia, and social anxiety—so the distinction between a disorder and “a normal anxiety” isn’t always clear.
+			</span>
+			<br>
+			<br>
+			<span>
+			Approximately one in ten people are paying a visit to the doctor because they are experiencing feelings of tension, anxiety or headaches.
+			</span>
+			<br>
+			<br>
+			<span>
+			But it is physical disturbance caused by anxiety that can be really intimidating. It can make you think that something with you is physically wrong, bringing you concerns that you are seriously ill.
+			</span>
+			<br>
+			<br>
+			<span>
+			So, the strong feeling that something terrible could happen (that is anxiety) brings on severe pains in your head and other actual physical discomfort.
+			</span>
+		</div>
+		<div class="cont img_content">
+			<span onclick="pop('tb_content');" class="span-btn">老板！再来个！</span>
+			<img src="Images/1.jpg" alt="">
+		</div>
+		<div class="cont tb_content">
+			<span onclick="pop('layer_content');" class="span-btn">老板！再来个！</span>
+			<table>
+				<thead>
+				<th>学号</th>
+				<th>姓名</th>
+				<th>性别</th>
+				<th>年龄</th>
+				<th>总分</th>
+				<td>备注</td>
+				</thead>
+				<tbody>
+					<tr>
+						<td>01</td>
+						<td>Abel</td>
+						<td>男</td>
+						<td>26</td>
+						<td>98.5</td>
+						<td></td>
+					</tr>
+					<tr>
+						<td>02</td>
+						<td>Richard</td>
+						<td>男</td>
+						<td>23</td>
+						<td>98.9</td>
+						<td></td>
+					</tr>
+					<tr>
+						<td>03</td>
+						<td>Evy</td>
+						<td>女</td>
+						<td>22</td>
+						<td>99.5</td>
+						<td></td>
+					</tr>
+					<tr>
+						<td>04</td>
+						<td>Icey</td>
+						<td>女</td>
+						<td>25</td>
+						<td>98.7</td>
+						<td></td>
+					</tr>
+					<tr>
+						<td>05</td>
+						<td>Jessica</td>
+						<td>女</td>
+						<td>26</td>
+						<td>98.5</td>
+						<td></td>
+					</tr>
+					<tr>
+						<td>06</td>
+						<td>Yang</td>
+						<td>女</td>
+						<td>29</td>
+						<td>100</td>
+						<td></td>
+					</tr>
+				</tbody>
+			</table>
+		</div>
+
+		<div class="cont layer_content">
+			<div><span onclick="pop('msg_content');" class="span-btn">老板！再来个！</span></div>
+		</div>
+	</div>
+</body>
+</html>
+<script src="Scripts/jquery-1.8.3.min.js"></script>
+<link rel="stylesheet" href="CSS/Popup/demos_index.css">
+<script src="Scripts/demos_index.js"></script>
