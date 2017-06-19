@@ -22,7 +22,7 @@
 	</div>
 	<div class="cont-continer">
 		<div class="cont msg_content">
-			<span onclick="pop('img_content');" class="span-btn">老板！再来个！</span>
+			<span onclick="pop('img_content',false);" class="span-btn">老板！来个不让遮罩关掉的！</span>
 			<span>Are you anxious and have splitting headaches as well?</span>
 			<br>
 			<br>
@@ -47,10 +47,11 @@
 		</div>
 		<div class="cont img_content">
 			<span onclick="pop('tb_content');" class="span-btn">老板！再来个！</span>
+			<span onclick="rewrite('tb_content',this);" class="span-btn">老板！内容换一个！</span>
 			<img src="Images/1.jpg" alt="">
 		</div>
 		<div class="cont tb_content">
-			<span onclick="pop('layer_content');" class="span-btn">老板！再来个！</span>
+			<span onclick="pop('layer_content',false);" class="span-btn">老板！来个不让遮罩关掉的！</span>
 			<table>
 				<thead>
 				<th>学号</th>

@@ -27,6 +27,7 @@
 	margin:0;
 	padding: 0;
 }
+
 /*.popup-win{
 	display:table; 
 	text-align:center; 
@@ -53,6 +54,11 @@
 	max-width: 60%;
 	max-height: 80%;
 	text-align: left;
+	animation: popup .3s;
+}
+@keyframes popup{
+	from{transform: scale(0.3);}
+	top{transform: scale(1);}
 }
 .popup-win span{
 	word-break: break-all;

@@ -126,26 +126,39 @@
 // })())
 
 var Popup = function (){
-	var Popup = {};
-	Popup.defaultOpt={}
+	var Popup = {},
+		defaultOpt={ShadeClose:true}
 	var _last_win_index = 10000;
 	var _tmp_variate_ishow = false;
 	var _popup_unique = [];
 	Popup = {
 		msg:function(){
 			var message = arguments && arguments.length ? arguments[0] : '';
-			opt = {content : message,unique:new Date().getTime()};
+			var user_opt = arguments && arguments.length ? arguments[1] : {};
+			opt={ShadeClose: true,content: message,unique: new Date().getTime()}
+			for (var o in user_opt) {
+				opt[o] = user_opt[o];
+			}
 			_popup_unique.push(opt.unique);
 			this.show(opt);
 			_tmp_variate_ishow = true;
 			$(window).resize(function() {
 	            if (_tmp_variate_ishow) {
-			console.log(_popup_unique.length);
 	            	for (var i = 0; i < _popup_unique.length; i++) {
 	                	_resize(_popup_unique[i]);
 	            	}
 	            }
 	        });
+		},
+		rewrite:function(){
+			var message = arguments && arguments.length ? arguments[0] : '';
+			var unique = arguments && arguments.length ? arguments[1] : {};
+			var popup_content_con = _getUniqueElement('class','win-content','con-unique',unique);
+			if (popup_content_con) {
+				popup_content_con.style.height = '';
+				popup_content_con.innerHTML = message;
+	        	_resize(unique);
+			}
 		},
 		show:function(opt){
 			_render(opt);
@@ -160,6 +173,19 @@ var Popup = function (){
 			if (!_popup_unique.length) {_tmp_variate_ishow = false;}
 			_removevalue(_popup_unique,unique);
 		},
+		shock:function(unique){
+			var popup_content = _getUniqueElement('class','popup-win','content-unique',unique);
+			if (popup_content) {
+				var left = parseInt(popup_content.style.left.replace('px',''));
+				for (var i = 0; i < 10; i++) {
+					setTimeout(function(pos){
+						return function(){
+							popup_content.style.left =left + 2*(pos % 2 ? 1 : -1) + 'px';
+						}
+					}(i),i * 50);
+				}
+			}
+		},
 		initBtnFun:function(popupwin,opt){
 			var popup_content = _getUniqueElement('class','popup-win','content-unique',opt.unique);
 			var popup = popup_content.getElementsByTagName('input');
@@ -172,8 +198,14 @@ var Popup = function (){
 		initShadeClick:function(popupwin,opt){
 			var popup_shade = _getUniqueElement('class','popup-win-shade','shade-unique',opt.unique);
 			if (popup_shade) {
-				popup_shade.onclick = function(){
-					popupwin.close(opt.unique);
+				if (opt.ShadeClose) {
+					popup_shade.onclick = function(){
+						popupwin.close(opt.unique);
+					}
+				} else {
+					popup_shade.onclick = function(){
+						popupwin.shock(opt.unique);	
+					}
 				}
 			}
 		}
